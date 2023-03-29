@@ -1,0 +1,33 @@
+﻿@using _3_27homework.Data
+@model IndexViewModel
+<div class="col-md-12">
+    <a href="/home/showadd" class="btn btn-success">Add People</a>
+    @if(!String.IsNullOrEmpty(Model.Message))
+    {
+        <div class="col-md-12">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                @Model.Message
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    }
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(Person p in Model.People)
+            {
+                <tr>
+                    <td>@p.FirstName</td>
+                    <td>@p.LastName</td>
+                    <td>@p.Age</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
